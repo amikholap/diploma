@@ -1,0 +1,5 @@
+events
+matplotlib
+numpy
+pandas
+wxPython
