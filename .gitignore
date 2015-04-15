@@ -1,3 +1,8 @@
 *.pyc
 venv
 .ipynb_checkpoints
+
+*.aux
+*.log
+*.out
+*.pdf
