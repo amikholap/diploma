@@ -4,7 +4,7 @@ COURSE_REPORT_PDF = course_report
 TITLE_PDF = diploma_title_only
 TASK_PDF = diploma_task_only
 BIBTEX = bibtex
-RM = rm -f
+RM = rm -rf
 
 
 all: $(DIPLOMA_REPORT_PDF).pdf $(TITLE_PDF).pdf $(TASK_PDF).pdf
@@ -36,5 +36,5 @@ cleanall: clean
 
 .PHONY: clean
 clean:
-	$(RM) *.aux *.log *.out *.toc *.gz *.gz\(busy\) *.blg *.bbl $(DIPLOMA_REPORT_PDF).pdf $(TASK_PDF).pdf $(TITLE_PDF).pdf $(COURSE_REPORT_PDF).pdf
+	$(RM) *.aux *.log *.out *.toc *.gz *.gz\(busy\) *.blg *.bbl _minted* $(DIPLOMA_REPORT_PDF).pdf $(TASK_PDF).pdf $(TITLE_PDF).pdf $(COURSE_REPORT_PDF).pdf
 

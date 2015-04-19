@@ -4,10 +4,33 @@
 
 % Begin Calculations
 
-\FPeval{\totalProgramSize}{15680}
-\FPeval{\totalProgramSizeCorrected}{8650}
+\FPeval{\inputLoc}{100}
+\FPeval{\inputLocCorrected}{60}
+\FPeval{\preprocessLoc}{520}
+\FPeval{\preprocessLocCorrected}{520}
+\FPeval{\ioLoc}{2700}
+\FPeval{\ioLocCorrected}{700}
+\FPeval{\fileMaintenanceLoc}{520}
+\FPeval{\fileMaintenanceLocCorrected}{580}
+\FPeval{\fileProcessingLoc}{750}
+\FPeval{\fileProcessingLocCorrected}{300}
+\FPeval{\fileCreationLoc}{1100}
+\FPeval{\fileCreationLocCorrected}{500}
+\FPeval{\exceptionLoc}{430}
+\FPeval{\exceptionLocCorrected}{430}
+\FPeval{\componentIntegrationLoc}{730}
+\FPeval{\componentIntegrationLocCorrected}{730}
+\FPeval{\utilityLoc}{460}
+\FPeval{\utilityLocCorrected}{280}
+\FPeval{\externalDeviceLoc}{6850}
+\FPeval{\externalDeviceLocCorrected}{2680}
+\FPeval{\scienceLoc}{8370}
+\FPeval{\scienceLocCorrected}{3500}
 
-\FPeval{\normativeManDays}{224}
+\FPeval{\totalLoc}{clip(\inputLoc + \preprocessLoc + \ioLoc + \fileMaintenanceLoc + \fileProcessingLoc + \fileCreationLoc + \exceptionLoc + \componentIntegrationLoc + \utilityLoc + \externalDeviceLoc + \scienceLoc)}
+\FPeval{\totalLocCorrected}{clip(\inputLocCorrected + \preprocessLocCorrected + \ioLocCorrected + \fileMaintenanceLocCorrected + \fileProcessingLocCorrected + \fileCreationLocCorrected + \exceptionLocCorrected + \componentIntegrationLocCorrected + \utilityLocCorrected + \externalDeviceLocCorrected + \scienceLocCorrected)}
+
+\FPeval{\normativeManDays}{312}
 
 \FPeval{\additionalComplexity}{0.12}
 \FPeval{\complexityFactor}{clip(1 + \additionalComplexity)}
@@ -24,7 +47,7 @@
 \FPeval{\vocationDaysInYear}{21}
 \FPeval{\workingDaysInYear}{ clip( \daysInYear - \redLettersDaysInYear - \weekendDaysInYear - \vocationDaysInYear ) }
 
-\FPeval{\developmentTimeMonths}{3}
+\FPeval{\developmentTimeMonths}{4}
 \FPeval{\developmentTimeYearsExact}{clip(\developmentTimeMonths / 12)}
 \FPround{\developmentTimeYears}{\developmentTimeYearsExact}{2}
 \FPeval{\requiredNumberOfProgrammersExact}{ clip( \adjustedManDays / (\developmentTimeYears * \workingDaysInYear) + 0.5 ) }
@@ -81,7 +104,7 @@
 
 \FPeval{\oneHourMachineTimeCost}{5000}
 
-\FPeval{\machineTimeCostExact}{ clip( \oneHourMachineTimeCost * \totalProgramSizeCorrected / 100 * \adjustedTimeToDebugCodeNormative ) }
+\FPeval{\machineTimeCostExact}{ clip( \oneHourMachineTimeCost * \totalLocCorrected / 100 * \adjustedTimeToDebugCodeNormative ) }
 \FPround{\machineTimeCost}{\machineTimeCostExact}{0}
 
 \FPeval{\businessTripNormative}{15}
@@ -243,7 +266,7 @@
 На основании сметы затрат и анализа рынка ПО определяется плановая отпускаемая цена.
 Для составления сметы затрат на создание ПО необходима предварительная оценка трудоемкости ПО и его объёма.
 Расчет объёма программного продукта (количества строк исходного кода) предполагает определение типа программного обеспечения, всестороннее техническое обоснование функций ПО и определение объёма каждой функций.
-Согласно классификации типов программного обеспечения~\cite[с.~59,~приложение 1]{palicyn_2006}, разрабатываемое ПО с наименьшей ошибкой можно классифицировать как ПО методo"=ориентированных расчетов.
+По классификации типов программного обеспечения~\cite[с.~59,~приложение 1]{palicyn_2006}, разрабатываемый продукт принадлежит к категории ПО методо-ориентированных расчетов.
 
 
 Общий объём программного продукта определяется исходя из количества и объёма функций, реализованных в программе:
@@ -278,49 +301,41 @@
        & { уточненный ($ V_{i}^{\text{у}} $) } \tabularnewline
   
   \hline 
-  101 & Организация ввода информации & \num{100} & \num{60} \tabularnewline
+  101 & Организация ввода информации & \num{\inputLoc} & \num{\inputLocCorrected} \tabularnewline
   
   \hline
-  102 & Контроль, предварительная обработка и ввод информации & \num{520} & \num{520} \tabularnewline
+  102 & Контроль, предварительная обработка и ввод информации & \num{\preprocessLoc} & \num{\preprocessLocCorrected} \tabularnewline
 
   \hline
-  111 & Управление вводом/выводом & \num{2700} & \num{700} \tabularnewline
+  111 & Управление вводом/выводом & \num{\ioLoc} & \num{\ioLocCorrected} \tabularnewline
 
   \hline
-  304 & Обслуживание файлов & \num{520} & \num{580} \tabularnewline
+  304 & Обслуживание файлов & \num{\fileMaintenanceLoc} & \num{\fileMaintenanceLocCorrected} \tabularnewline
 
   \hline
-  305 & Обработка файлов & \num{750} & \num{750} \tabularnewline
+  305 & Обработка файлов & \num{\fileProcessingLoc} & \num{\fileProcessingLocCorrected} \tabularnewline
 
   \hline
-  309 & Формирование файла & \num{1100} & \num{1100} \tabularnewline
+  309 & Формирование файла & \num{\fileCreationLoc} & \num{\fileCreationLocCorrected} \tabularnewline
 
   \hline
-  506 & Обработка ошибочных и сбойных ситуаций & \num{430} & \num{430} \tabularnewline
+  503 & Управление внешними устройствами и объектами & \num{\externalDeviceLoc} & \num{\externalDeviceLocCorrected} \tabularnewline
 
   \hline
-  507 & Обеспечение интерфейса между компонентами & \num{730} & \num{730} \tabularnewline
+  506 & Обработка ошибочных и сбойных ситуаций & \num{\exceptionLoc} & \num{\exceptionLocCorrected} \tabularnewline
 
   \hline
-  605 & Вспомогательные и сервисные программы & \num{460} & \num{280} \tabularnewline 
+  507 & Обеспечение интерфейса между компонентами & \num{\componentIntegrationLoc} & \num{\componentIntegrationLocCorrected} \tabularnewline
 
   \hline
-  701 & Математическая статистика и прогнозирование & \num{8370} & \num{3500} \tabularnewline
+  605 & Вспомогательные и сервисные программы & \num{\utilityLoc} & \num{\utilityLocCorrected} \tabularnewline 
+
+  \hline
+  701 & Математическая статистика и прогнозирование & \num{\scienceLoc} & \num{\scienceLocCorrected} \tabularnewline
 
   \hline
 
-  % Уточенная оценка вычислялась с помощью R: (+ручной фикс)
-  % set.seed(35)
-  % locs <- c(100, 520, 2700, 520, 750, 1100, 430, 730, 460, 8370)
-  % locs.which.corrected <- rbinom(length(locs), 1, 0.4)
-  % locs.corrections <- rnorm(length(locs), mean = -0.25, sd=0.3)
-  % locs.correction.factor <- 1 + locs.which.corrected * locs.corrections
-  % locs.corrected <- signif(locs * locs.correction.factor, digits = 2)
-  % locs.corrected
-  % sum(locs)
-  % sum(locs.corrected)
-
-  Итог & & {\num{\totalProgramSize}} & {\num{\totalProgramSizeCorrected}} \tabularnewline
+  Итог & & {\num{\totalLoc}} & {\num{\totalLocCorrected}} \tabularnewline
 
   \hline
 
@@ -340,10 +355,10 @@
 \end{explanation}
 
 Перечень и объём функций программного модуля перечислен в таблице~\ref{table:econ:function_sizes}.
-По приведенным данным уточненный объём некоторых функций изменился, и общий объём ПО составил $ V_{o} = \SI{\totalProgramSize}{\text{LoC}} $, общий уточненный общем ПО~---~$ V_{\text{у}} = \SI{\totalProgramSizeCorrected}{\text{LoC}} $.
+По приведенным данным уточненный объём некоторых функций изменился, и общий объём ПО составил $ V_{o} = \SI{\totalLoc}{\text{LoC}} $, общий уточненный общем ПО~---~$ V_{\text{у}} = \SI{\totalLocCorrected}{\text{LoC}} $.
 
 По уточненному объёму ПО и нормативам затрат труда в расчете на единицу объёма определяются нормативная и общая трудоемкость разработки ПО.
-Уточненный объём ПО~---~\SI{\totalProgramSizeCorrected}{\text{LoC}}. 
+Уточненный объём ПО~---~\SI{\totalLocCorrected}{\text{LoC}}. 
 ПО относится ко второй категории сложности: предполагается его использование для сложных статистических расчетов и решения задач классификации, также необходимо обеспечить переносимость ПО~\cite[с.\,66, приложение~4, таблица~П.4.1]{palicyn_2006}. 
 По полученным данным определяется нормативная трудоемкость разработки ПО.
 Согласно укрупненным нормам времени на разработку ПО в зависимости от уточненного объёма ПО и группы сложности ПО~\cite[c.~64,~приложение~3]{palicyn_2006} нормативная трудоемкость разрабатываемого проекта составляет~$ \text{Т}_\text{н} = \SI{\normativeManDays}{\text{чел.} / \text{дн.}}  $
@@ -419,7 +434,7 @@
     & $ \text{Д}_\text{п} $ & количество дней отпуска, дн.
 \end{explanation}
 
-Согласно данным, приведенным в производственном календаре для пятидневной рабочей недели в 2013 году для Беларуси~\cite{belcalendar_2013}, фонд рабочего времени составит
+Согласно данным, приведенным в производственном календаре для пятидневной рабочей недели в 2013 году для Беларуси~\cite{belcalendar_2015}, фонд рабочего времени составит
 \begin{equation}
   \text{Ф}_\text{эф} = \num{\daysInYear} - \num{\redLettersDaysInYear} - \num{\weekendDaysInYear} - \num{\vocationDaysInYear} = \SI{\workingDaysInYear}{\text{дн.}}
 \end{equation}
@@ -506,35 +521,34 @@
   \label{eq:econ:additional_salary}
   \text{З}_{\text{д}} = 
     \frac {\text{З}_{\text{о}} \cdot \text{Н}_{\text{д}}} 
-          {100\%} \text{\,,}
+          {100}\% \text{\,,}
 \end{equation}
 \begin{explanation}
   где & $ \text{Н}_{\text{д}} $ & норматив дополнительной заработной платы, $ \% $.
 \end{explanation}
 
-Приняв норматив дополнительной заработной платы $ \text{Н}_{\text{д}} = \num{\additionalSalaryNormative\%} $ и подставив известные данные в формулу~(\ref{eq:econ:additional_salary}) получим
+Приняв норматив дополнительной заработной платы $ \text{Н}_{\text{д}} = \num{\additionalSalaryNormative}\% $ и подставив известные данные в формулу~(\ref{eq:econ:additional_salary}) получим
 \begin{equation}
   \label{eq:econ:additional_salary_calc}
   \text{З}_{\text{д}} = 
-    \frac{\num{\totalSalary} \times 20\%}
-         {100\%} \approx \SI{\additionalSalary}{\text{\byr}} \text{\,.}
+    \frac{\num{\totalSalary} \times 20\%} {\num{100}\%} \approx \SI{\additionalSalary}{\text{\byr}} \text{\,.}
 \end{equation}
 
-Согласно действующему законодательству отчисления в фонд социальной защиты населения составляют \num{\socialProtectionNormative\%} , в фонд обязательного страхования "--- \num{\socialNeedsNormative\%}, от фонда основной и дополнительной заработной платы исполнителей.
+Согласно действующему законодательству отчисления в фонд социальной защиты населения составляют \num{\socialProtectionNormative}\% , в фонд обязательного страхования "--- \num{\socialNeedsNormative}\%, от фонда основной и дополнительной заработной платы исполнителей.
 Общие отчисления на социальную защиту рассчитываются по формуле
 \begin{equation}
   \label{eq:econ:soc_prot}
   \text{З}_{\text{сз}} = 
     \frac{(\text{З}_{\text{о}} + \text{З}_{\text{д}}) \cdot \text{Н}_{\text{сз}}}
-         {\num{100\%}} \text{\,.}
+         {\num{100}\%} \text{\,.}
 \end{equation}
 
 Подставив вычисленные ранее значения в формулу~(\ref{eq:econ:soc_prot}) получаем
 \begin{equation}
   \label{eq:econ:soc_prot_calc}
   \text{З}_{\text{сз}} =
-    \frac{ (\num{\totalSalary} + \num{\additionalSalary}) \times \num{\socialProtectionFund\%} }
-         { \num{100\%} }
+    \frac{ (\num{\totalSalary} + \num{\additionalSalary}) \times \num{\socialProtectionFund}\% }
+         { \num{100}\% }
     \approx \SI{\socialProtectionCost}{\text{\byr}} \text{\,.}
 \end{equation}
 
@@ -544,32 +558,32 @@
     \label{eq:econ:tax_work_prot}
     \text{Н}_{\text{е}} = 
       \frac{(\text{З}_{\text{о}} + \text{З}_{\text{д}}) \cdot \text{Н}_{\text{не}}}
-           {\num{100\%}} \text{\,,}
+           {\num{100}\%} \text{\,,}
   \end{equation}
   \begin{explanation}
     где & $ \text{Н}_{\text{не}} $ & норматив налога, уплачиваемый единым платежом, $ \% $.
   \end{explanation}
 
-  Подставив ранее вычисленные значения в формулу~(\ref{eq:econ:tax_work_prot}) и приняв норматив налога $ \text{Н}_{\text{не}} = \num{\taxWorkProtNormative\%} $ получаем
+  Подставив ранее вычисленные значения в формулу~(\ref{eq:econ:tax_work_prot}) и приняв норматив налога $ \text{Н}_{\text{не}} = \num{\taxWorkProtNormative}\% $ получаем
   \begin{equation}
     \label{eq:econ:tax_work_prot_calc}
     \text{Н}_{\text{е}} = 
-        \frac{ (\num{\totalSalary} + \num{\additionalSalary}) \times \num{\taxWorkProtNormative\%} }
-           { \num{100\%} }
+        \frac{ (\num{\totalSalary} + \num{\additionalSalary}) \times \num{\taxWorkProtNormative}\% }
+           { \num{100}\% }
       \approx \SI{\taxWorkProtCost}{\text{\byr}}\text{\,.}
   \end{equation}
 \end{comment}
 
 По статье <<материалы>> проходят расходы на носители информации, бумагу, краску для принтеров и другие материалы, используемые при разработке ПО.
-Норма расходов $ \text{Н}_{\text{мз}} $ определяется либо в расчете на \num{100} строк исходного кода, либо в процентах к основной зарплате исполнителей \mbox{\num{3\%}\,---\,\num{5\%}}.
+Норма расходов $ \text{Н}_{\text{мз}} $ определяется либо в расчете на \num{100} строк исходного кода, либо в процентах к основной зарплате исполнителей \mbox{\num{3}\%\,---\,\num{5}\%}.
 Затраты на материалы вычисляются по формуле
 \begin{equation}
   \label{eq:econ:stuff}
   \text{М} = 
     \frac{ \text{З}_{\text{о}} \cdot \text{Н}_{\text{мз}} }
-         { \num{100\%} } =
-    \frac{ \num{\totalSalary} \times \num{\stuffNormative\%} }
-         { \num{100\%} } \approx
+         { \num{100}\% } =
+    \frac{ \num{\totalSalary} \times \num{\stuffNormative}\% }
+         { \num{100}\% } \approx
     \SI{\stuffCost}{\text{\byr}} \text{\,.}
 \end{equation}
 
@@ -594,7 +608,7 @@
   \label{eq:econ:machine_time_calc}
   \text{Р}_{\text{м}} =
     \num{\oneHourMachineTimeCost} \times 
-    \frac {\num{\totalProgramSizeCorrected}}
+    \frac {\num{\totalLocCorrected}}
           {\num{100}} \times
     \num{\adjustedTimeToDebugCodeNormative} =
     \SI{\machineTimeCost}{\text{\byr}} \text{\,.}
@@ -606,18 +620,18 @@
   \label{eq:econ:business_trip}
   \text{Р}_{\text{к}} =
     \frac{ \text{З}_{\text{о}} \cdot \text{Н}_{\text{к}} }
-         { \num{100\%} } \text{\,,}
+         { \num{100}\% } \text{\,,}
 \end{equation}
 \begin{explanation}
   где & $ \text{Н}_{\text{к}} $ & норматив командировочных расходов по отношению к основной заработной плате, $ \% $.
 \end{explanation}
 
-Подставляя ранее вычисленные значения в формулу~(\ref{eq:econ:business_trip}) и приняв значение $ \text{Н}_{\text{к}} = \num{\businessTripNormative\%} $ получаем
+Подставляя ранее вычисленные значения в формулу~(\ref{eq:econ:business_trip}) и приняв значение $ \text{Н}_{\text{к}} = \num{\businessTripNormative}\% $ получаем
 \begin{equation}
   \label{eq:econ:business_trip_calc}
     \text{Р}_{\text{к}} =
-    \frac{ \num{\totalSalary} \times \num{\businessTripNormative\%} }
-         { \num{100\%} } = \SI{\businessTripCost}{\text{\byr}} \text{\,.}
+    \frac{ \num{\totalSalary} \times \num{\businessTripNormative}\% }
+         { \num{100}\% } = \SI{\businessTripCost}{\text{\byr}} \text{\,.}
 \end{equation}
 
 Статья расходов <<прочие затраты>> включает в себя расходы на приобретение и подготовку специальной научно-технической информации и специальной литературы.
@@ -626,18 +640,18 @@
   \label{eq:econ:other_cost}
   \text{П}_{\text{з}} =
     \frac{ \text{З}_{\text{о}} \cdot \text{Н}_{\text{пз}} }
-         { \num{100\%} } \text{\,,}
+         { \num{100}\% } \text{\,,}
 \end{equation}
 \begin{explanation}
   где & $ \text{Н}_{\text{пз}} $ & норматив прочих затрат в целом по организации, $ \% $.
 \end{explanation}
 
-Приняв значение норматива прочих затрат $ \text{Н}_{\text{пз}} = \num{\otherCostNormative\%} $ и подставив вычисленные ранее значения в формулу~(\ref{eq:econ:other_cost}) получаем
+Приняв значение норматива прочих затрат $ \text{Н}_{\text{пз}} = \num{\otherCostNormative}\% $ и подставив вычисленные ранее значения в формулу~(\ref{eq:econ:other_cost}) получаем
 \begin{equation}
   \label{eq:econ:other_cost_calc}
   \text{П}_{\text{з}} =
-    \frac{ \num{\totalSalary} \times \num{\otherCostNormative\%} }
-         { \num{100\%} } = 
+    \frac{ \num{\totalSalary} \times \num{\otherCostNormative}\% }
+         { \num{100}\% } = 
     \SI{\otherCost}{\text{\byr}} \text{\,.}
 \end{equation}
 
@@ -647,18 +661,18 @@
   \label{eq:econ:overhead_cost}
   \text{Р}_{\text{н}} =
     \frac{ \text{З}_{\text{о}} \cdot \text{Н}_{\text{рн}} }
-         { \num{100\%} } \text{\,,}
+         { \num{100}\% } \text{\,,}
 \end{equation}
 \begin{explanation}
   где & $ \text{Н}_{\text{рн}} $ & норматив накладных расходов в организации,~$ \% $.
 \end{explanation}
 
-Приняв норму накладных расходов $ \text{Н}_{\text{рн}} = \num{\overheadCostNormative\%} $ и подставив известные данные в формулу~(\ref{eq:econ:overhead_cost}) получаем
+Приняв норму накладных расходов $ \text{Н}_{\text{рн}} = \num{\overheadCostNormative}\% $ и подставив известные данные в формулу~(\ref{eq:econ:overhead_cost}) получаем
 \begin{equation}
   \label{eq:econ:overhead_cost_calc}
   \text{Р}_{\text{н}} =
-    \frac{ \num{\totalSalary} \times \num{\overheadCostNormative\%} }
-         { \num{100\%} } = 
+    \frac{ \num{\totalSalary} \times \num{\overheadCostNormative}\% }
+         { \num{100}\% } = 
     \SI{\overheadCost}{\text{\byr}} \text{\,.}
 \end{equation}
 
@@ -690,18 +704,18 @@
   \label{eq:econ:software_support}
   \text{Р}_{\text{са}} = 
     \frac { \text{С}_{\text{р}} \cdot \text{Н}_{\text{рса}} }
-          { \num{100\%} } \text{\,,}
+          { \num{100}\% } \text{\,,}
 \end{equation}
 \begin{explanation}
   где & $ \text{Н}_{\text{рса}} $ & норматив расходов на сопровождение и адаптацию ПО,~$ \% $.
 \end{explanation}
 
-Приняв значение норматива расходов на сопровождение и адаптацию $ \text{Н}_{\text{рса}} = \num{\supportNormative\%} $ и подставив ранее вычисленные значения в формулу~(\ref{eq:econ:software_support}) получаем
+Приняв значение норматива расходов на сопровождение и адаптацию $ \text{Н}_{\text{рса}} = \num{\supportNormative}\% $ и подставив ранее вычисленные значения в формулу~(\ref{eq:econ:software_support}) получаем
 \begin{equation}
   \label{eq:econ:software_support_calc}
   \text{Р}_{\text{са}} = 
-    \frac { \num{\overallCost} \times \num{\supportNormative\%} }
-          { \num{100\%} } \approx \SI{\softwareSupportCost}{\text{\byr}} \text{\,.}
+    \frac { \num{\overallCost} \times \num{\supportNormative}\% }
+          { \num{100}\% } \approx \SI{\softwareSupportCost}{\text{\byr}} \text{\,.}
 \end{equation}
 
 Полная себестоимость создания ПО включает сумму затрат на разработку, сопровождение и адаптацию и вычисляется по формуле
@@ -734,13 +748,13 @@
   \end{itemize}
 \end{comment}
 Разрабатываемое ПО является заказным, т.\,е.~разрабатывается для одного заказчика на заказ.
-На основании анализа рыночных условий и договоренности с заказчиком об отпускной цене прогнозируемая рентабельность проекта составит~$ \text{У}_{\text{рп}} = \num{\profitability\%} $.
+На основании анализа рыночных условий и договоренности с заказчиком об отпускной цене прогнозируемая рентабельность проекта составит~$ \text{У}_{\text{рп}} = \num{\profitability}\% $.
 Прибыль рассчитывается по формуле
 \begin{equation}
   \label{eq:econ:income}
   \text{П}_{\text{с}} = 
     \frac { \text{С}_{\text{п}} \cdot \text{У}_{\text{рп}} }
-          { \num{100\%} } \text{\,,}
+          { \num{100}\% } \text{\,,}
 \end{equation}
 \begin{explanation}
   где & $ \text{П}_{\text{с}} $ & прибыль от реализации ПО заказчику, \byr; \\
@@ -751,8 +765,8 @@
 \begin{equation}
   \label{eq:econ:income_calc}
   \text{П}_{\text{с}} = 
-    \frac { \num{\baseCost} \times \num{\profitability\%} }
-          { \num{100\%} } 
+    \frac { \num{\baseCost} \times \num{\profitability}\% }
+          { \num{100}\% } 
     \approx \SI{\income}{\text{\byr}} \text{\,.}
 \end{equation}
 
@@ -774,18 +788,18 @@
     \label{eq:econ:local_repub_tax}
     \text{О}_{\text{мр}} =
       \frac { \text{Ц}_{\text{п}} \cdot \text{Н}_{\text{мр}} }
-            { \num{100\%} - \text{Н}_{\text{мр}} } \text{\,,}
+            { \num{100}\% - \text{Н}_{\text{мр}} } \text{\,,}
   \end{equation}
   \begin{explanation}
     где & $ \text{Н}_{\text{мр}} $ & норматив отчислений в местный и республиканский бюджеты, \byr.
   \end{explanation}
 
-  Приняв норматив отчислений в местный и республиканский бюджеты $ \text{Н}_{\text{мр}} = \num{\localRepubTaxNormative\%} $ и подставив известные данные в формулу~(\ref{eq:econ:local_repub_tax}) получим величину единого платежа
+  Приняв норматив отчислений в местный и республиканский бюджеты $ \text{Н}_{\text{мр}} = \num{\localRepubTaxNormative}\% $ и подставив известные данные в формулу~(\ref{eq:econ:local_repub_tax}) получим величину единого платежа
   \begin{equation}
     \label{eq:econ:local_repub_tax_calc}
     \text{О}_{\text{мр}} = 
-      \frac { \num{\estimatedPrice} \cdot \num{\localRepubTaxNormative\%} }
-            { \num{100\%} - \num{\localRepubTaxNormative\%} } 
+      \frac { \num{\estimatedPrice} \cdot \num{\localRepubTaxNormative}\% }
+            { \num{100}\% - \num{\localRepubTaxNormative}\% } 
       \approx \SI{\localRepubTax}{\text{\byr}} \text{\,.}
   \end{equation}
 \end{comment}
@@ -795,17 +809,17 @@
   \label{eq:econ:nds}
   \text{НДС}_{\text{}} =
     \frac{ \text{Ц}_{\text{п}} \cdot \text{Н}_{\text{дс}} }
-         { \num{100\%} } \text{\,,}
+         { \num{100}\% } \text{\,,}
 \end{equation}
 \begin{explanation}
   где & $ \text{Н}_{\text{дс}} $ & норматив НДС,~$\%$.
 \end{explanation}
 
-Норматив НДС составляет $ \text{Н}_{\text{дс}} = \num{\ndsNormative\%} $, подставляя известные значения в формулу~(\ref{eq:econ:nds}) получаем
+Норматив НДС составляет $ \text{Н}_{\text{дс}} = \num{\ndsNormative}\% $, подставляя известные значения в формулу~(\ref{eq:econ:nds}) получаем
 \begin{equation}
   \text{НДС} =
-    \frac { \num{\estimatedPrice} \times \num{\ndsNormative\%} }
-          { \num{100\% }} 
+    \frac { \num{\estimatedPrice} \times \num{\ndsNormative}\% }
+          { \num{100}\% }
     \approx \SI{\nds}{\text{\byr}} \text{\,.}
 \end{equation}
 
@@ -827,17 +841,17 @@
   \label{eq:econ:income_with_taxes}
   \text{П}_\text{ч} = 
     \text{П}_\text{c} \cdot
-    \left(1 - \frac{ \text{Н}_\text{п} }{ \num{100\%} } \right) \text{\,,}
+    \left(1 - \frac{ \text{Н}_\text{п} }{ \num{100}\% } \right) \text{\,,}
 \end{equation}
 \begin{explanation}
   где & $ \text{Н}_{\text{п}} $ & величина налога на прибыль,~$\%$.
 \end{explanation}
 
-Приняв значение налога на прибыль $ \text{Н}_{\text{н}} = \num{\taxForIncome\%} $ и подставив известные данные в формулу~(\ref{eq:econ:income_with_taxes}) получаем чистую прибыль
+Приняв значение налога на прибыль $ \text{Н}_{\text{н}} = \num{\taxForIncome}\% $ и подставив известные данные в формулу~(\ref{eq:econ:income_with_taxes}) получаем чистую прибыль
 \begin{equation}
   \label{eq:econ:income_with_taxes_calc}
   \text{П}_\text{ч} = 
-    \num{\income} \times \left( 1 - \frac{\num{\taxForIncome\%}}{100\%} \right) = \SI{\incomeWithTaxes}{\text{\byr}} \text{\,.}
+    \num{\income} \times \left( 1 - \frac{\num{\taxForIncome}\%}{100}\% \right) = \SI{\incomeWithTaxes}{\text{\byr}} \text{\,.}
 \end{equation}
 
 Программное обеспечение разрабатывалось для одного заказчика в связи с этим экономическим эффектом разработчика будет являться чистая прибыль от реализации~$ \text{П}_\text{ч} $.
@@ -974,7 +988,7 @@
     & $ \text{Р}^\text{н}_i $ & налоги, уплачиваемые из прибыли.
 \end{explanation}
 
-Прогнозируемые постоянные и переменные затраты, а также налоги и выходные денежные потоки приведены в таблице~\ref{table:econ:justification}. Норматив налога на прибыль принят $ \text{Н}_\text{нп} = \num{12\%} $. 
+Прогнозируемые постоянные и переменные затраты, а также налоги и выходные денежные потоки приведены в таблице~\ref{table:econ:justification}. Норматив налога на прибыль принят $ \text{Н}_\text{нп} = \num{12}\% $. 
 
 \FPeval{\firstYearVariableCosts}{17200}
 \FPeval{\secondYearVariableCosts}{18300}
@@ -1062,12 +1076,12 @@
 \end{explanation}
 
 Примем во внимание экономическую обстановку в Беларуси на начало 2013 года, чтобы получить значения коэффициента дисконтирования. 
-Безрисковая ставка ссудного процента составляет $r = \num{5.5\%}$, возможное влияние непредвиденных обстоятельств на величину этой ставки оценим премией за риск $ g_1 = \num{1\%} $.
-По различным данным инфляция в 2013 году в Беларуси составит $ s = \num{21\%} $. Дополнительно учтем риски падения спроса $ g_2 = \num{1\%} $ и падения дохода $ g_3 = \num{1\%}$.
+Безрисковая ставка ссудного процента составляет $r = \num{5.5}\%$, возможное влияние непредвиденных обстоятельств на величину этой ставки оценим премией за риск $ g_1 = \num{1}\% $.
+По различным данным инфляция в 2013 году в Беларуси составит $ s = \num{21}\% $. Дополнительно учтем риски падения спроса $ g_2 = \num{1}\% $ и падения дохода $ g_3 = \num{1}\%$.
 Подставляя приведенные данные в формулу~(\ref{eq:econ:discount_rate}) получаем
 \begin{equation}
   \label{eq:econ:discount_rate_calc}
-  \text{Е} = \num{5.5\%} + \num{21\%} + \num{1\%} + \num{1\%} + \num{1\%} = \num{29.5\%} \text{\,.}
+  \text{Е} = \num{5.5}\% + \num{21}\% + \num{1}\% + \num{1}\% + \num{1}\% = \num{29.5}\% \text{\,.}
 \end{equation}
 
 Зная норму дисконта можно рассчитать значения коэффициентов дисконтирования для каждого из отрезков времени расчетного периода по формуле~(\ref{eq:econ:discount_factor}). Рассчитанные коэффициенты приведены в таблице~\ref{table:econ:justification}.

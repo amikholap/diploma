@@ -1,8 +1,12 @@
+# Python stuff
 *.pyc
 venv
 .ipynb_checkpoints
 
+# TeX stuff
 *.aux
+*.bak
 *.log
 *.out
 *.pdf
+*.pyg
