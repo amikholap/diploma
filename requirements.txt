@@ -1,5 +1,14 @@
+# Core
 events
 matplotlib
 numpy
 pandas
+
+# GUI
 wxPython
+
+# IPython Notebook
+Jinja2
+jsonschema
+tornado
+pyzmq
