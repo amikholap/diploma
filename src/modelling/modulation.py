@@ -6,6 +6,7 @@ __all__ = ['am', 'pm', 'fm']
 
 
 def am(signal, carrier_amp, carrier_freq):
+    @np.vectorize
     def modulated(t):
         amp = carrier_amp * signal(t)
         return amp * np.cos(carrier_freq * t)
@@ -13,6 +14,7 @@ def am(signal, carrier_amp, carrier_freq):
 
 
 def pm(signal, carrier_amp, carrier_freq, m):
+    @np.vectorize
     def modulated(t):
         phase = carrier_freq*t + m*signal(t)
         return carrier_amp * np.cos(2 * np.pi * phase)
@@ -20,6 +22,7 @@ def pm(signal, carrier_amp, carrier_freq, m):
 
 
 def fm(signal, carrier_amp, carrier_freq, deviation):
+    @np.vectorize
     def modulated(t):
         # pretty ineffective
         integral = scipy.integrate.quad(signal, 0, t)[0]

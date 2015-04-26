@@ -4,9 +4,7 @@ import numpy as np
 def stft(s, time_range, window_size, window_step):
     """Short-time Fourier transform"""
 
-    # Window should be at least connected to its neighbours.
-    if window_size < window_step:
-        raise RuntimeError('Window size must be larger than window step')
+    _validate_window_parameters(window_size, window_step)
 
     tmin, tmax, dt = time_range
     nspectrograms = int((tmax - tmin) / window_step - (window_size / window_step))
@@ -22,3 +20,27 @@ def stft(s, time_range, window_size, window_step):
         data[i, :] = np.fft.fft(signal_data)
 
     return data
+
+
+def dstft(s, window_size, window_step):
+    """Discrete Short-time Fourier transform"""
+
+    _validate_window_parameters(window_size, window_step)
+
+    nspectrograms = int((len(s) - window_size) // window_step + 1)
+
+    data = np.zeros((nspectrograms, window_size), dtype=np.complex)
+
+    for i in range(nspectrograms):
+        low = i * window_step
+        high = low + window_size
+        signal_data = s[low:high]
+        data[i, :] = np.fft.fft(signal_data)
+
+    return data
+
+
+def _validate_window_parameters(window_size, window_step):
+    # Window should be at least connected to its neighbours.
+    if window_size < window_step:
+        raise RuntimeError('Window size must be larger than window step')
