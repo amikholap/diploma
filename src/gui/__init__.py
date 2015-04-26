@@ -1,1 +1,1 @@
-from gui import App  # noqa
+from .gui import *  # noqa

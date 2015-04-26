@@ -1,15 +1,12 @@
-#!/usr/bin/env python
-import threading
-
-import wx
+#!/usr/bin/env python3
+import sys
 
 from gui import App
-from scanner import Scanner
 
 
 def main():
-    app = App(scanner=Scanner())
-    app.MainLoop()
+    app = App(sys.argv)
+    sys.exit(app.exec_())
 
 
 if __name__ == '__main__':

@@ -5,7 +5,7 @@ numpy
 pandas
 
 # GUI
-wxPython
+# PyQt5
 
 # IPython Notebook
 Jinja2
