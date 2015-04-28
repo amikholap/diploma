@@ -11,7 +11,7 @@ def wave(A, f):
     return func
 
 
-def noise(ev, std):
+def noise(std, ev=0):
     @np.vectorize
     def func(t):
         return np.random.normal(loc=ev, scale=std)
