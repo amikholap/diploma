@@ -31,10 +31,7 @@ $(TASK_PDF).pdf: *.tex
 	$(PDFLATEX) $(TASK_PDF)
 
 
-cleanall: clean
-	$(RM)  *.pdf
-
 .PHONY: clean
-clean:
-	$(RM) *.aux *.log *.out *.toc *.gz *.gz\(busy\) *.blg *.bbl _minted* $(DIPLOMA_REPORT_PDF).pdf $(TASK_PDF).pdf $(TITLE_PDF).pdf $(COURSE_REPORT_PDF).pdf
 
+clean:
+	$(RM) *.aux sections/*.aux *.log *.out *.pyg *.toc *.gz *.gz\(busy\) *.blg *.bbl _minted* $(DIPLOMA_REPORT_PDF).pdf $(TASK_PDF).pdf $(TITLE_PDF).pdf $(COURSE_REPORT_PDF).pdf

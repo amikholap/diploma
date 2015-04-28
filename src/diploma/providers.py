@@ -2,12 +2,22 @@ import abc
 import time
 import threading
 
+import events
 import numpy as np
 
 from . import conf
 
 
-class AbstractProvider(abc.ABC):
+__all__ = ['ModelProvider']
+
+
+class AbstractProvider(abc.ABC, events.Events):
+
+    __events__ = ['on_sample_chunk']
+
+    def __init__(self):
+        super().__init__()
+        self.events = ProviderEvents()
 
     @abc.abstractmethod
     def start(self):
@@ -16,6 +26,10 @@ class AbstractProvider(abc.ABC):
     @abc.abstractmethod
     def stop(self):
         pass
+
+
+class ProviderEvents(events.Events):
+    __events__ = ['on_sample_chunk']
 
 
 class ThreadedProvider(AbstractProvider):
@@ -26,17 +40,13 @@ class ThreadedProvider(AbstractProvider):
         self.__thread = None
 
     def start(self):
-        print("STARTING")
         self.__thread = threading.Thread(target=self.__run)
         self.__running = True
         self.__thread.start()
-        print("STARTED")
 
     def stop(self):
-        print("STOPPING")
         self.__running = False
         self.__thread.join()
-        print("STOPPED")
 
     def __run(self):
         while self.__running:
@@ -49,11 +59,10 @@ class ThreadedProvider(AbstractProvider):
 
 class ModelProvider(ThreadedProvider):
 
-    _DELAY = 0.5
-
     def __init__(self, model):
         super().__init__()
         self.model = model
+        self._last_invoked_at = None
 
     def start(self):
         self._last_invoked_at = time.time()  # reset timer
@@ -66,7 +75,4 @@ class ModelProvider(ThreadedProvider):
 
         ts = np.arange(time_from, time_to, 1 / conf.SAMPLE_RATE)
         samples = self.model(ts)
-
-        time.sleep(self._DELAY)
-
-        print(samples.size)
+        self.events.on_sample_chunk(samples)
