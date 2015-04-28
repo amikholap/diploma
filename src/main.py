@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import sys
 
-from gui import App
+from diploma.gui import App
 
 
 def main():
