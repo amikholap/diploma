@@ -24,6 +24,20 @@
 % Зачем: Учет особенностей различных языков.
 \usepackage[russian]{babel}
 
+\usepackage[square,numbers,sort&compress]{natbib}
+\setlength{\bibsep}{0em}
+
+% Зачем: Перенос урлов на новую строку в позиции дефиса.
+% hyperref импортирует url, поэтому задаем параметр неявно.
+\PassOptionsToPackage{hyphens}{url}
+
+\usepackage[final,hidelinks]{hyperref}
+
+% Зачем: Подпись ссылок на рисунки вида "рисунок Х"
+\addto\extrasrussian{%
+  \def\figureautorefname{рисунок}%
+}
+
 \addto\captionsrussian{%
   % Зачем: Содержание пишется полужирным шрифтом, по центру всеми заглавными буквами
   % Почему: Пункт 2.2.7 Требований по оформлению пояснительной записки.
@@ -43,7 +57,12 @@
 % Почему: Пункт 2.1.1 Требований по оформлению пояснительной записки.
 \usepackage{extsizes}
 
-% Зачем: типографские заморочки. В частности, текст не вылазит за правую границу.
+
+% Зачем: Чтобы текст не вылазил за правую границу.
+\sloppy
+
+
+% Зачем: Типографские заморочки.
 \usepackage{microtype}
 
 
@@ -200,13 +219,11 @@
 \usepackage[final]{graphicx}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.eps}
 
-
 % Зачем: Директория в которой будет происходить поиск картинок
 \graphicspath{{figures/}}
 
-
 % Зачем: Добавление подписей к рисункам
-\usepackage[nooneline]{caption}
+\usepackage{caption}
 \usepackage{subcaption}
 
 % Зачем: чтобы работала \No в новых латехах
@@ -372,12 +389,8 @@
 
 \usepackage[normalem]{ulem}
 
-\usepackage[final,hidelinks]{hyperref}
 % Моноширинный шрифт выглядит визуально больше, чем пропорциональный шрифт, если их размеры одинаковы. Искусственно уменьшаем размер ссылок.
 \renewcommand{\UrlFont}{\small\rmfamily\tt}
-
-\usepackage[square,numbers,sort&compress]{natbib}
-\setlength{\bibsep}{0em}
 
 % Магия для подсчета разнообразных объектов в документе
 \usepackage{lastpage}
