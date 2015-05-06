@@ -355,11 +355,8 @@
 % Почему: В требованиях не нашел, но в русском языке для дробных чисел используется {,} а не {.}
 \usepackage{icomma}
 
-% Зачем: макрос для печати римских чисел
-\makeatletter
-\newcommand{\rmnum}[1]{\romannumeral #1}
-\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
-\makeatother
+% Зачем: Печать римских чисел.
+\usepackage{romannum}
 
 
 % Зачем: Символы для siunitx в T1 кодировке
@@ -484,4 +481,6 @@
 \newcommand{\python}{Python}
 \newcommand{\django}{Django}
 \newcommand{\purec}{C}
+\newcommand{\sdr}{Software Defined Radio}
+\newcommand{\SDR}{SDR}
 \listfiles
