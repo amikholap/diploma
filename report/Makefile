@@ -7,7 +7,8 @@ BIBTEX = bibtex
 RM = rm -rf
 
 
-all: $(DIPLOMA_REPORT_PDF).pdf $(TITLE_PDF).pdf $(TASK_PDF).pdf
+all: clean $(DIPLOMA_REPORT_PDF).pdf
+#all: clean $(DIPLOMA_REPORT_PDF).pdf $(TITLE_PDF).pdf $(TASK_PDF).pdf
 
 
 $(DIPLOMA_REPORT_PDF).pdf: *.tex

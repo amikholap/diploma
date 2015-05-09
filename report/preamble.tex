@@ -35,6 +35,7 @@
 
 % Зачем: Подпись ссылок на рисунки вида "рисунок Х"
 \addto\extrasrussian{%
+  \def\equationautorefname{формула}%
   \def\figureautorefname{рисунок}%
 }
 
@@ -254,7 +255,7 @@
 \usepackage{calc}
 \newlength{\lengthWordWhere}
 \settowidth{\lengthWordWhere}{где}
-\newenvironment{explanationx}
+\newenvironment{explanation}
     {
     %%% Следующие строки определяют специфические требования разных редакций стандартов. Раскоменнтируйте нужную строку
     %% стандартный абзац, СТП-01 2010
@@ -273,7 +274,7 @@
 % Старое окружение для "где". Сохранено для совместимости
 \usepackage{tabularx}
 
-\newenvironment{explanation}
+\newenvironment{explanationx}
     {
     %%% Следующие строки определяют специфические требования разных редакций стандартов. Раскоменнтируйте нужные 2 строки
     %% стандартный абзац, СТП-01 2010
