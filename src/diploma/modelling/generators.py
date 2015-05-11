@@ -4,9 +4,9 @@ import numpy as np
 __all__ = ['wave', 'noise', 'add']
 
 
-def wave(A, f):
+def wave(A, f, phase=0):
     def func(t):
-        return A * np.cos(2*np.pi*f*t)
+        return A * np.cos(2*np.pi*f*t + phase)
     return func
 
 
