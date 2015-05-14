@@ -33,7 +33,7 @@
 
 \usepackage[final,hidelinks]{hyperref}
 
-% Зачем: Подпись ссылок на рисунки вида "рисунок Х"
+% Зачем: Подпись ссылок на рисунки вида "рисунок/формула Х"
 \addto\extrasrussian{%
   \def\equationautorefname{формула}%
   \def\figureautorefname{рисунок}%
@@ -365,7 +365,8 @@
 
 % Зачем: Управление выводом чисел.
 \usepackage{siunitx}
-\sisetup{output-decimal-marker = {,}}
+\sisetup{output-decimal-marker = {,}, per-mode = symbol}
+\DeclareSIUnit{\sample}{S}
 
 % Зачем: inline-коментирование содержимого.
 \newcommand{\ignore}[2]{\hspace{0in}#2}
