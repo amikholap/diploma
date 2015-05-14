@@ -37,6 +37,7 @@
 \addto\extrasrussian{%
   \def\equationautorefname{формула}%
   \def\figureautorefname{рисунок}%
+  \def\tableautorefname{таблица}%
 }
 
 \addto\captionsrussian{%
@@ -365,7 +366,7 @@
 
 % Зачем: Управление выводом чисел.
 \usepackage{siunitx}
-\sisetup{output-decimal-marker = {,}, per-mode = symbol}
+\sisetup{binary-units = true, output-decimal-marker = {,}, per-mode = symbol}
 \DeclareSIUnit{\sample}{S}
 
 % Зачем: inline-коментирование содержимого.
