@@ -6,6 +6,7 @@ import events
 import numpy as np
 
 from . import conf
+from . import utils
 
 
 __all__ = ['ModelProvider']
@@ -55,6 +56,36 @@ class ThreadedProvider(AbstractProvider):
     @abc.abstractmethod
     def provide(self):
         pass
+
+
+class FileProvider(ThreadedProvider):
+
+    MAX_CHUNK_SIZE = 2 ** 15
+
+    def __init__(self, filename):
+        super().__init__()
+        self.filename = filename
+
+    def __iter__(self):
+        with open(self.filename, 'rb') as f:
+            while True:
+                raw = np.fromstring(f.read(2), dtype=np.int8)
+                if raw.size < 2:
+                    break
+                yield np.complex64(raw[0] + raw[1] * 1j)
+
+    def start(self):
+        self.file = open(self.filename, 'rb')
+        super().start()
+
+    def stop(self):
+        super().stop()
+        self.file.close()
+
+    def provide(self):
+        raw = self.file.read(2 * self.MAX_CHUNK_SIZE)
+        samples = utils.raw_iq_to_complex(raw)
+        self.events.on_sample_chunk(samples)
 
 
 class ModelProvider(ThreadedProvider):

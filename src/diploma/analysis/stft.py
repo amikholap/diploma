@@ -1,3 +1,5 @@
+import itertools
+
 import numpy as np
 
 
@@ -38,6 +40,29 @@ def dstft(s, window_size, window_step):
         data[i, :] = np.fft.fft(signal_data)
 
     return data
+
+
+def streaming_dstft(stream, window_size, window_step):
+    """
+    Discrete Short-time Fourier transform operating on streams of data
+
+    Args:
+        stream: A stream of complex I/Q samples.
+        window_size: STFT window size.
+        window_step: STFT window step.
+
+    Returns:
+        A generator that yields transformed data window by window.
+    """
+
+    _validate_window_parameters(window_size, window_step)
+
+    chunk = list(itertools.islice(stream, window_size))
+    while len(chunk) >= window_size:
+        yield np.fft.fft(chunk)
+        new_part = list(itertools.islice(stream, window_step))
+        chunk = chunk[window_step:]
+        chunk.extend(new_part)
 
 
 def _validate_window_parameters(window_size, window_step):
