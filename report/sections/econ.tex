@@ -274,10 +274,10 @@
   \label{eq:econ:total_program_size}
   V_{o} = \sum_{i = 1}^{n} V_{i} \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ V_{i} $ & объём отдельной функции ПО, LoC; \\
     & $ n $ & общее число функций.
-\end{explanation}
+\end{explanationx}
 
 На стадии технико-экономического обоснования проекта рассчитать точный объём функций невозможно.
 Вместо вычисления точного объёма функций применяются приблизительные оценки на основе данных по аналогичным проектам или по нормативам~\cite[с.~61,~приложение 2]{palicyn_2006}, которые приняты в организации.
@@ -349,10 +349,10 @@
   \label{eq:econ:total_program_size_corrected}
   V_{\text{у}} = \sum_{i = 1}^{n} V_{i}^{\text{у}} \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ V_{i}^{\text{y}} $ & уточненный объём отдельной функции ПО, LoC; \\
     & $ n $ & общее число функций.
-\end{explanation}
+\end{explanationx}
 
 Перечень и объём функций программного модуля перечислен в таблице~\ref{table:econ:function_sizes}.
 По приведенным данным уточненный объём некоторых функций изменился, и общий объём ПО составил $ V_{o} = \SI{\totalLoc}{\text{LoC}} $, общий уточненный общем ПО~---~$ V_{\text{у}} = \SI{\totalLocCorrected}{\text{LoC}} $.
@@ -372,21 +372,21 @@
                       \text{К}_\text{т} \cdot 
                       \text{К}_\text{н} \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ \text{К}_\text{с} $ & коэффициент, учитывающий сложность ПО; \\
     & $ \text{К}_\text{т} $ & поправочный коэффициент, учитывающий степень использования при разработке стандартных модулей; \\
     & $ \text{К}_\text{н} $ & коэффициент, учитывающий степень новизны ПО.
-\end{explanation}
+\end{explanationx}
 
 Дополнительные затраты труда на разработку ПО учитываются через коэффициент сложности, который вычисляется по формуле
 \begin{equation}
 \label{eq:econ:complexity_coeff}
   \text{К}_{\text{с}} = 1 + \sum_{i = 1}^n \text{К}_{i} \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ \text{К}_{i} $ & коэффициент, соответствующий степени повышения сложности ПО за счет конкретной характеристики; \\
     & $ n $ & количество учитываемых характеристик.
-\end{explanation}
+\end{explanationx}
 
 Наличие двух характеристик сложности позволяет~\cite[c.~66, приложение~4, таблица~П.4.2]{palicyn_2006} вычислить коэффициент сложности
 \begin{equation}
@@ -412,11 +412,11 @@
   \label{eq:econ:num_of_programmers}
   \text{Ч}_\text{р} = \frac{\text{Т}_\text{о}}{\text{Т}_\text{р} \cdot \text{Ф}_\text{эф}} \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ \text{Т}_\text{о} $ & общая трудоемкость разработки проекта, $ \text{чел.}/\text{дн.} $; \\
     & $ \text{Ф}_\text{эф} $ & эффективный фонд времени работы одного работника в течение года, дн.; \\
     & $ \text{Т}_\text{р} $ & срок разработки проекта, лет.
-\end{explanation}
+\end{explanationx}
 
 Эффективный фонд времени работы одного разработчика вычисляется по формуле
 \begin{equation}
@@ -427,12 +427,12 @@
     \text{Д}_\text{в} -
     \text{Д}_\text{о} \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ \text{Д}_\text{г} $ & количество дней в году, дн.; \\
     & $ \text{Д}_\text{п} $ & количество праздничных дней в году, не совпадающих с выходными днями, дн.; \\
     & $ \text{Д}_\text{в} $ & количество выходных дней в году, дн.; \\
     & $ \text{Д}_\text{п} $ & количество дней отпуска, дн.
-\end{explanation}
+\end{explanationx}
 
 Согласно данным, приведенным в производственном календаре для пятидневной рабочей недели в 2013 году для Беларуси~\cite{belcalendar_2015}, фонд рабочего времени составит
 \begin{equation}
@@ -474,11 +474,11 @@
     \frac {\text{Т}_{\text{м}_{1}} \cdot \text{Т}_{\text{к}} } 
           {\text{Ф}_{\text{р}} }  \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ \text{Т}_{\text{м}_{1}} $ & месячная тарифная ставка 1-го разряда, \byr; \\
     & $ \text{Т}_{\text{к}} $ & тарифный коэффициент, соответствующий установленному тарифному разряду; \\
     & $ \text{Ф}_{\text{р}} $ & среднемесячная норма рабочего времени, час.
-\end{explanation}
+\end{explanationx}
 
 
 
@@ -503,12 +503,12 @@
                         \text{К}
                           \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ \text{Т}_{\text{ч}}^{i} $ & часовая тарифная ставка \mbox{$ i $-го} исполнителя, \byr$/$час; \\
     & $ \text{Т}_{\text{ч}} $ & количество часов работы в день, час; \\
     & $ \text{Ф}_{\text{п}} $ & плановый фонд рабочего времени \mbox{$ i $-го} исполнителя, дн.; \\
     & $ \text{К} $ & коэффициент премирования.
-\end{explanation}
+\end{explanationx}
 
 Подставив ранее вычисленные значения и данные из таблицы~\ref{table:econ:programmers} в формулу~(\ref{eq:econ:total_salary}) и приняв коэффициент премирования $ \text{К} = \num{\bonusRate} $ получим
 \begin{equation}
@@ -523,9 +523,9 @@
     \frac {\text{З}_{\text{о}} \cdot \text{Н}_{\text{д}}} 
           {100}\% \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{Н}_{\text{д}} $ & норматив дополнительной заработной платы, $ \% $.
-\end{explanation}
+\end{explanationx}
 
 Приняв норматив дополнительной заработной платы $ \text{Н}_{\text{д}} = \num{\additionalSalaryNormative}\% $ и подставив известные данные в формулу~(\ref{eq:econ:additional_salary}) получим
 \begin{equation}
@@ -560,9 +560,9 @@
       \frac{(\text{З}_{\text{о}} + \text{З}_{\text{д}}) \cdot \text{Н}_{\text{не}}}
            {\num{100}\%} \text{\,,}
   \end{equation}
-  \begin{explanation}
+  \begin{explanationx}
     где & $ \text{Н}_{\text{не}} $ & норматив налога, уплачиваемый единым платежом, $ \% $.
-  \end{explanation}
+  \end{explanationx}
 
   Подставив ранее вычисленные значения в формулу~(\ref{eq:econ:tax_work_prot}) и приняв норматив налога $ \text{Н}_{\text{не}} = \num{\taxWorkProtNormative}\% $ получаем
   \begin{equation}
@@ -596,10 +596,10 @@
           {\num{100}} \cdot
     \text{Н}_{\text{мв}} \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{Ц}_{\text{м}} $ & цена одного часа машинного времени, \byr; \\
       & $ \text{Н}_{\text{мв}} $ & норматив расхода машинного времени на отладку 100 строк исходного кода, часов.
-\end{explanation}
+\end{explanationx}
 
 Согласно нормативу~\cite[с.\,69, приложениe~6]{palicyn_2006} норматив расхода машинного времени на отладку \num{100} строк исходного кода составляет $ \text{Н}_{\text{мв}} = \num{\timeToDebugCodeNormative} $, применяя понижающий коэффициент \num{\reducingTimeToDebugFactor} получаем $ {\text{Н}'}_{\text{мв}} = \num{\adjustedTimeToDebugCodeNormative} $.
 Цена одного часа машинного времени составляет $ \text{Ц}_{\text{м}} = \SI{\oneHourMachineTimeCost}{\text{\byr}} $.
@@ -622,9 +622,9 @@
     \frac{ \text{З}_{\text{о}} \cdot \text{Н}_{\text{к}} }
          { \num{100}\% } \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{Н}_{\text{к}} $ & норматив командировочных расходов по отношению к основной заработной плате, $ \% $.
-\end{explanation}
+\end{explanationx}
 
 Подставляя ранее вычисленные значения в формулу~(\ref{eq:econ:business_trip}) и приняв значение $ \text{Н}_{\text{к}} = \num{\businessTripNormative}\% $ получаем
 \begin{equation}
@@ -642,9 +642,9 @@
     \frac{ \text{З}_{\text{о}} \cdot \text{Н}_{\text{пз}} }
          { \num{100}\% } \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{Н}_{\text{пз}} $ & норматив прочих затрат в целом по организации, $ \% $.
-\end{explanation}
+\end{explanationx}
 
 Приняв значение норматива прочих затрат $ \text{Н}_{\text{пз}} = \num{\otherCostNormative}\% $ и подставив вычисленные ранее значения в формулу~(\ref{eq:econ:other_cost}) получаем
 \begin{equation}
@@ -663,9 +663,9 @@
     \frac{ \text{З}_{\text{о}} \cdot \text{Н}_{\text{рн}} }
          { \num{100}\% } \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{Н}_{\text{рн}} $ & норматив накладных расходов в организации,~$ \% $.
-\end{explanation}
+\end{explanationx}
 
 Приняв норму накладных расходов $ \text{Н}_{\text{рн}} = \num{\overheadCostNormative}\% $ и подставив известные данные в формулу~(\ref{eq:econ:overhead_cost}) получаем
 \begin{equation}
@@ -706,9 +706,9 @@
     \frac { \text{С}_{\text{р}} \cdot \text{Н}_{\text{рса}} }
           { \num{100}\% } \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{Н}_{\text{рса}} $ & норматив расходов на сопровождение и адаптацию ПО,~$ \% $.
-\end{explanation}
+\end{explanationx}
 
 Приняв значение норматива расходов на сопровождение и адаптацию $ \text{Н}_{\text{рса}} = \num{\supportNormative}\% $ и подставив ранее вычисленные значения в формулу~(\ref{eq:econ:software_support}) получаем
 \begin{equation}
@@ -756,10 +756,10 @@
     \frac { \text{С}_{\text{п}} \cdot \text{У}_{\text{рп}} }
           { \num{100}\% } \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{П}_{\text{с}} $ & прибыль от реализации ПО заказчику, \byr; \\
       & $ \text{У}_{\text{рп}} $ & уровень рентабельности ПО,~$ \% $.
-\end{explanation}
+\end{explanationx}
 
 Подставив известные данные в формулу~(\ref{eq:econ:income}) получаем прогнозируемую прибыль от реализации ПО
 \begin{equation}
@@ -790,9 +790,9 @@
       \frac { \text{Ц}_{\text{п}} \cdot \text{Н}_{\text{мр}} }
             { \num{100}\% - \text{Н}_{\text{мр}} } \text{\,,}
   \end{equation}
-  \begin{explanation}
+  \begin{explanationx}
     где & $ \text{Н}_{\text{мр}} $ & норматив отчислений в местный и республиканский бюджеты, \byr.
-  \end{explanation}
+  \end{explanationx}
 
   Приняв норматив отчислений в местный и республиканский бюджеты $ \text{Н}_{\text{мр}} = \num{\localRepubTaxNormative}\% $ и подставив известные данные в формулу~(\ref{eq:econ:local_repub_tax}) получим величину единого платежа
   \begin{equation}
@@ -811,9 +811,9 @@
     \frac{ \text{Ц}_{\text{п}} \cdot \text{Н}_{\text{дс}} }
          { \num{100}\% } \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{Н}_{\text{дс}} $ & норматив НДС,~$\%$.
-\end{explanation}
+\end{explanationx}
 
 Норматив НДС составляет $ \text{Н}_{\text{дс}} = \num{\ndsNormative}\% $, подставляя известные значения в формулу~(\ref{eq:econ:nds}) получаем
 \begin{equation}
@@ -843,9 +843,9 @@
     \text{П}_\text{c} \cdot
     \left(1 - \frac{ \text{Н}_\text{п} }{ \num{100}\% } \right) \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
   где & $ \text{Н}_{\text{п}} $ & величина налога на прибыль,~$\%$.
-\end{explanation}
+\end{explanationx}
 
 Приняв значение налога на прибыль $ \text{Н}_{\text{н}} = \num{\taxForIncome}\% $ и подставив известные данные в формулу~(\ref{eq:econ:income_with_taxes}) получаем чистую прибыль
 \begin{equation}
@@ -968,9 +968,9 @@
   \label{eq:econ:income_cash_flow}
   \text{ДП}^\text{п}_i = \text{Д}^\text{р}_i + \text{А}^\text{о}_i \text{\,.}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ \text{А}^\text{о}_i $ & амортизационные отчисления, \byr.
-\end{explanation}
+\end{explanationx}
 
 \FPeval{\depreciations}{3000}
 \FPeval{\firstYearCashFlowIncome}{clip(\depreciations + \revenueInFirstYear)}
@@ -982,11 +982,11 @@
   \label{eq:econ:cash_flow_outcome}
   \text{ДП}^\text{о}_i = \text{Р}^\text{п}_i + \text{Р}^\text{у}_i + \text{Р}^\text{н}_i
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ \text{Р}^\text{п}_i $ & переменные затраты на производство и реализацию, \byr; \\
     & $ \text{Р}^\text{у}_i $ & расходы постоянные на управление и обслуживание, \byr; \\
     & $ \text{Р}^\text{н}_i $ & налоги, уплачиваемые из прибыли.
-\end{explanation}
+\end{explanationx}
 
 Прогнозируемые постоянные и переменные затраты, а также налоги и выходные денежные потоки приведены в таблице~\ref{table:econ:justification}. Норматив налога на прибыль принят $ \text{Н}_\text{нп} = \num{12}\% $. 
 
@@ -1069,11 +1069,11 @@
   \label{eq:econ:discount_rate}
   \text{Е} = r + s + \sum_{i=1}^{n} g_i \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ r $ & реальная (без учета компенсации за инфляцию) безрисковая ставка ссудного процента, \%; \\
     & $ s $ & инфляционное ожидание за период $ t $, рассчитанное как среднее за расчетный период проекта, \%; \\
     & $ g_i $ & премия за отдельный риск по конкретному фактору, \%.
-\end{explanation}
+\end{explanationx}
 
 Примем во внимание экономическую обстановку в Беларуси на начало 2013 года, чтобы получить значения коэффициента дисконтирования. 
 Безрисковая ставка ссудного процента составляет $r = \num{5.5}\%$, возможное влияние непредвиденных обстоятельств на величину этой ставки оценим премией за риск $ g_1 = \num{1}\% $.
@@ -1089,9 +1089,9 @@
   \label{eq:econ:discount_factor}
   \alpha_t = (1 + \text{Е})^{-t} \text{\,,}
 \end{equation}
-\begin{explanation}
+\begin{explanationx}
 где & $ t $ & номер отрезка времени расчетного периода с момента старта проекта, \%.
-\end{explanation}
+\end{explanationx}
 
 Основным показателем экономической целесообразности реализации проекта является чистый дисконтированный доход. 
 Разрабатываемый проект предусматривает одноразовые начальные инвестиции, поэтому чистый дисконтированный доход может быть рассчитан по формуле
