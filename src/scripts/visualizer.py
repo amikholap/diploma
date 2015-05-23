@@ -31,7 +31,7 @@ def visualize(source, window_size, window_step, interactive):
             for fname in os.listdir(root):
                 fname = os.path.join(root, fname)
                 walker(fname)
-        else:
+        elif os.path.splitext(root)[-1] == '.bin':
             visualize_file(root, window_size, window_step, interactive)
 
     source = os.path.normpath(source)
@@ -56,6 +56,8 @@ def visualize_file(fname, window_size, window_step, interactive):
         png_name = os.path.splitext(fname)[0]
         png_name += '.png'
         plt.savefig(png_name)
+
+    print('Done with {}'.format(fname))
 
 
 if __name__ == '__main__':

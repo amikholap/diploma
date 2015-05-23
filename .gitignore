@@ -13,3 +13,4 @@ _minted*
 *.out
 *.pdf
 *.pyg
+*.toc

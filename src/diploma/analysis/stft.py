@@ -4,7 +4,7 @@ import numpy as np
 
 
 def stft(s, time_range, window_size, window_step):
-    """Short-time Fourier transform"""
+    """Short-time Fourier transform."""
 
     _validate_window_parameters(window_size, window_step)
 
@@ -19,13 +19,13 @@ def stft(s, time_range, window_size, window_step):
         thigh = tlow + window_size
         ts = np.linspace(tlow, thigh, samples_per_window)
         signal_data = s(ts)
-        data[i, :] = np.fft.fft(signal_data)
+        data[i, :] = _shifted_fft(signal_data)
 
     return data
 
 
 def dstft(s, window_size, window_step):
-    """Discrete Short-time Fourier transform"""
+    """Discrete Short-time Fourier transform."""
 
     _validate_window_parameters(window_size, window_step)
 
@@ -37,14 +37,14 @@ def dstft(s, window_size, window_step):
         low = i * window_step
         high = low + window_size
         signal_data = s[low:high]
-        data[i, :] = np.fft.fft(signal_data)
+        data[i, :] = _shifted_fft(signal_data)
 
     return data
 
 
 def streaming_dstft(stream, window_size, window_step):
     """
-    Discrete Short-time Fourier transform operating on streams of data
+    Discrete Short-time Fourier transform operating on streams of data.
 
     Args:
         stream: A stream of complex I/Q samples.
@@ -59,13 +59,26 @@ def streaming_dstft(stream, window_size, window_step):
 
     chunk = list(itertools.islice(stream, window_size))
     while len(chunk) >= window_size:
-        yield np.fft.fft(chunk)
+        yield _shifted_fft(chunk)
         new_part = list(itertools.islice(stream, window_step))
         chunk = chunk[window_step:]
         chunk.extend(new_part)
+
+
+def _shifted_fft(a):
+    return np.fft.fftshift(np.fft.fft(a), axes=-1)
 
 
 def _validate_window_parameters(window_size, window_step):
     # Window should be at least connected to its neighbours.
     if window_size < window_step:
         raise RuntimeError('Window size must be larger than window step')
+
+
+def freqs(n, step, center=0):
+    """
+    Return the Discrete Short-time Fourier Transform sample frequencies.
+    """
+    fs = np.fft.fftfreq(n, step) + center
+    fs = np.fft.fftshift(fs)
+    return fs
