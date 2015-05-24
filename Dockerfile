@@ -13,7 +13,9 @@ RUN apt-get install --no-install-recommends -y -qq \
     libsndfile1-dev \
     fftw3-dev \
     liblapack-dev \
-    portaudio19-dev
+    portaudio19-dev \
+    # utils
+    socat
 
 # rtl-sdr
 WORKDIR /tmp
@@ -59,3 +61,5 @@ RUN make install
 RUN ldconfig
 
 WORKDIR /
+
+CMD socat UDP-RECV:7355 - | dsd -q -i /dev/stdin -o /dev/stdout | socat - UDP-SENDTO:127.0.0.1:7356
