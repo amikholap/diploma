@@ -37,6 +37,7 @@
 \addto\extrasrussian{%
   \def\equationautorefname{формула}%
   \def\figureautorefname{рисунок}%
+  \def\listingautorefname{листинг}%
   \def\tableautorefname{таблица}%
 }
 
@@ -47,6 +48,8 @@
   % Зачем: Изменение надписи для списка литературы
   % Почему: Пункт 2.8.1 Требований по оформлению пояснительной записки.
   \renewcommand{\bibsection}{\sectioncentered*{Cписок использованных источников}}%
+  % Зачем: Ручная локализация заголовков листингов.
+  \renewcommand{\listingscaption}{Листинг}%
 }
 
 \AtEndDocument{%
@@ -345,6 +348,9 @@
 
 % Зачем: Включение номера раздела в номер рисунка. Нумерация рисунков внутри раздела.
 \AtBeginDocument{\numberwithin{figure}{section}}
+
+% Зачем: Включение номера раздела в номер листинга. Нумерация листингов внутри раздела.
+\AtBeginDocument{\numberwithin{listing}{section}}
 
 
 % Зачем: Дополнительные возможности в форматировании таблиц
