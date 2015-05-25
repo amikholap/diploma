@@ -836,28 +836,6 @@
 \end{equation}
 
 
-Чистую прибыль от реализации проекта можно рассчитать по формуле
-\begin{equation}
-  \label{eq:econ:income_with_taxes}
-  \text{П}_\text{ч} = 
-    \text{П}_\text{c} \cdot
-    \left(1 - \frac{ \text{Н}_\text{п} }{ \num{100}\% } \right) \text{\,,}
-\end{equation}
-\begin{explanationx}
-  где & $ \text{Н}_{\text{п}} $ & величина налога на прибыль,~$\%$.
-\end{explanationx}
-
-Приняв значение налога на прибыль $ \text{Н}_{\text{н}} = \num{\taxForIncome}\% $ и подставив известные данные в формулу~(\ref{eq:econ:income_with_taxes}) получаем чистую прибыль
-\begin{equation}
-  \label{eq:econ:income_with_taxes_calc}
-  \text{П}_\text{ч} = 
-    \num{\income} \times \left( 1 - \frac{\num{\taxForIncome}\%}{100}\% \right) = \SI{\incomeWithTaxes}{\text{\byr}} \text{\,.}
-\end{equation}
-
-Программное обеспечение разрабатывалось для одного заказчика в связи с этим экономическим эффектом разработчика будет являться чистая прибыль от реализации~$ \text{П}_\text{ч} $.
-Рассчитанные данные приведены в таблице~\ref{table:econ:calculated_data}.
-Таким образом было произведено технико"=экономическое обоснование разрабатываемого проекта, составлена смета затрат и рассчитана прогнозируемая прибыль, и показана экономическая целесообразность разработки.
-
 \begin{table}[!h!t]
 \caption{Рассчитанные данные}
 \label{table:econ:calculated_data}
@@ -932,7 +910,29 @@
     \hline
   \end{tabular}
 \end{table}
-\hfill
+
+Чистую прибыль от реализации проекта можно рассчитать по формуле
+\begin{equation}
+  \label{eq:econ:income_with_taxes}
+  \text{П}_\text{ч} = 
+    \text{П}_\text{c} \cdot
+    \left(1 - \frac{ \text{Н}_\text{п} }{ \num{100}\% } \right) \text{\,,}
+\end{equation}
+\begin{explanationx}
+  где & $ \text{Н}_{\text{п}} $ & величина налога на прибыль,~$\%$.
+\end{explanationx}
+
+Приняв значение налога на прибыль $ \text{Н}_{\text{н}} = \num{\taxForIncome}\% $ и подставив известные данные в формулу~(\ref{eq:econ:income_with_taxes}) получаем чистую прибыль
+\begin{equation}
+  \label{eq:econ:income_with_taxes_calc}
+  \text{П}_\text{ч} = 
+    \num{\income} \times \left( 1 - \frac{\num{\taxForIncome}\%}{100}\% \right) = \SI{\incomeWithTaxes}{\text{\byr}} \text{\,.}
+\end{equation}
+
+Программное обеспечение разрабатывалось для одного заказчика в связи с этим экономическим эффектом разработчика будет являться чистая прибыль от реализации~$ \text{П}_\text{ч} $.
+Рассчитанные данные приведены в таблице~\ref{table:econ:calculated_data}.
+Таким образом было произведено технико"=экономическое обоснование разрабатываемого проекта, составлена смета затрат и рассчитана прогнозируемая прибыль, и показана экономическая целесообразность разработки.
+
 \clearpage
 
 
