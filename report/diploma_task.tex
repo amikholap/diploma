@@ -1,0 +1,133 @@
+{
+  \newgeometry{top=1.25cm,bottom=1.25cm,right=1cm,left=2cm,twoside}
+  \thispagestyle{empty}
+  \setlength{\parindent}{0em}
+
+  \newcommand{\lineunderscore}{\uline{\hspace*{\fill}}}
+  \newcommand{\underlined}[1]{\uline{ #1\hfill}}
+  \newcommand{\underlinedbox}[2]{\makebox[#1]{\uline{ #2\hfill}}}
+  \newcommand{\underlinedcentered}[1]{\centering\uline{\makebox[\linewidth]{#1}}}
+
+  \begin{center}
+    Министерство образования Республики Беларусь\\
+    Учреждение образования\\
+    БЕЛОРУССКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ \\
+    ИНФОРМАТИКИ И РАДИОЭЛЕКТРОНИКИ\\[1em]
+
+
+  \begin{minipage}{\textwidth}
+    \begin{flushleft}
+      \begin{tabular}{ p{0.20\textwidth}p{0.31\textwidth}p{0.20\textwidth}p{0.20\textwidth} @{} }
+        Факультет & \underlined{КСиС} & Кафедра & \underlined{Информатики} \\
+        Специальность & \underlined{1-31 03 04} & Специализация & \underlined{07}
+      \end{tabular}
+    \end{flushleft}
+  \end{minipage}\\[1em]
+
+  \begin{minipage}{\textwidth}
+    \begin{flushright}
+      \begin{tabular}{p{0.40\textwidth}}
+        \hspace{6.8em} УТВЕРЖДАЮ \\
+        \underline{\hspace*{7em}} Зав. кафедрой \\
+        <<\underline{\hspace*{4ex}}>> \underline{\hspace*{7em}} 2015 г.
+      \end{tabular}
+    \end{flushright}
+  \end{minipage}\\[1em]
+
+  \textbf{ЗАДАНИЕ} \\
+  \textbf{по дипломному проекту (работе) студента}
+
+  \underlinedcentered{Михолапа Алеся Александровича}\\
+  {\small (фамилия, имя, отчество) }
+
+  \end{center}
+
+  \vspace{1em}
+
+  1. Тема проекта (работы):
+  \underlined{Программное средство для обнаружения радиосигналов с помощью \SDR-приемника} \\
+  утверждена приказом по университету от <<\underlinedbox{1.5em}{25}>> \underlinedbox{5em}{марта} 2014 г. \No{} \underlined{510-с}
+
+  \vspace{1em}
+
+  2. Срок сдачи студентом законченного проекта (работы): \lineunderscore
+
+  \vspace{1em}
+
+  3. Исходные данные к проекту (работе):
+  \underlined{Назначение разработки: создать программный радиосканер на аппаратной основе \sdr, способный обнаруживать нешумовые сигналы в исследуемой полосе частот.}\\
+  \lineunderscore
+
+  \vspace{1em}
+
+  4. Содержание пояснительной записки (перечень подлежащих разработке вопросов):
+  \underlined{Введение}\\
+  \underlined{1 Обзор предметной области}\\
+  \underlined{2 Аппаратное обеспечение}\\
+  \underlined{3 Методы обнаружения сигналов}\\
+  \underlined{4 Описание разработанных алгоритмов}\\
+  \underlined{5 Технико-экономическое обоснование}\\
+  \underlined{6 Обеспечение пожарной безопасности на предприятии}\\
+  \underlined{Заключение}
+
+  \clearpage
+  \thispagestyle{empty}
+
+  5. Перечень графического материала (с точным указанием обязательных чертежей):
+  \underlined{Последовательность обработки сигнала (ПД1) - формат А1, лист 1}\\
+  \underlined{Блок-схема алгоритма обнаружения WFM сигналов (ПД2) - формат А1, лист 1}\\
+  \underlined{Блок-схема алгоритма обнаружения NFM сигналов (ПД3) - формат А1, лист 1}\\
+  \underlined{\SDR-приемники (ПЛ1) - формат А1, лист 1}\\
+  \underlined{Спектрограммы различных типов сигналов (ПЛ2) - формат А1, лист 1}\\
+  \underlined{Суточная спектрограмма широкого диапазона частот (ПЛ3) - формат А1, лист 1}\\
+
+  \vspace{1em}
+
+  6. Содержание задания по технико-экономическому обоснованию.\\
+  \underlined{Расчет экономической эффективности от продажи разработанного программного продукта}\\
+  \lineunderscore
+
+  Задание выдал \hspace{1em} \uline{\hspace*{6em}} \hspace{1em} К.\,Р.~Литвинович
+
+  \vspace{1em}
+
+  7. Содержание задания по охране труда и экологической безопасности, ресурсо- и энергосбережению (\textit{указать конкретное наименование раздела}).\\
+  \underlined{Обеспечение пожарной безопасности на предприятии <<ЯндексБел>>}\\
+  \lineunderscore
+
+  Задание выдал \hspace{1em} \uline{\hspace*{6em}} \hspace{1em} Т.\,В.~Гордейчук
+
+  \vfill
+
+  \begin{center}
+    КАЛЕНДАРНЫЙ ПЛАН
+  \end{center}
+
+  \begingroup
+  \small
+  \begin{tabular}{| >{\centering}m{0.04\textwidth} 
+                  | >{\centering}m{0.40\textwidth} 
+                  | >{\centering}m{0.08\textwidth}
+                  | >{\centering}m{0.19\textwidth}  
+                  | >{\centering\arraybackslash}m{0.16\textwidth}|}
+    \hline \No{} п/п & Наименование этапов дипломного проекта (работы) & Объем этапа, \% & Срок выполнения этапов & Примечание \\
+    \hline 1 & Изучение материалов о предметной области & 10-15 & 25.01 - 15.02& \\
+    \hline 2 & Поиск аналогов, формулирование конкретных задач & 10 & 16.02 - 28.02 & \\
+    \hline 3 & Расчет экономической эффективности и выполнение задания по охране труда & 15-20 & 01.03 - 20.03 & \\
+    \hline 4 & Создание прототипа, исследование различных алгоритмов & 20 & 21.03 - 15.04 & \\
+    \hline 5 & Конечная реализация разработанных методов & 15-20 & 16.04 - 10.05 & \\
+    \hline 6 & Оформление пояснительной записки и графического материала & 20-25 & 11.05 - 01.06 & \\
+    \hline
+  \end{tabular}
+  \endgroup
+
+  \vspace{2em}
+
+  Дата выдачи задания: \uline{\hspace*{6em}} \hspace{2ex} Руководитель \hfill{} \uline{\hspace*{4em}} М.\,В.~Стержанов
+
+  \vspace{1em}
+
+  Задание принял к исполнению \hfill{} \uline{\hspace*{4em}} А.\,А.~Михолап
+
+  \restoregeometry
+}
