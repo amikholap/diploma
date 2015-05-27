@@ -372,7 +372,12 @@
 
 % Зачем: Управление выводом чисел.
 \usepackage{siunitx}
-\sisetup{binary-units = true, output-decimal-marker = {,}, per-mode = symbol}
+\sisetup{
+  binary-units = true,
+  output-decimal-marker = {,},
+  per-mode = symbol,
+  range-phrase = --,
+}
 \DeclareSIUnit{\sample}{S}
 
 % Зачем: inline-коментирование содержимого.
