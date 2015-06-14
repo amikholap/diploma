@@ -10,7 +10,9 @@ _minted*
 *.bbl
 *.blg
 *.log
+*.nav
 *.out
 *.pdf
 *.pyg
+*.snm
 *.toc

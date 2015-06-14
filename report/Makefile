@@ -3,6 +3,7 @@ DIPLOMA_REPORT_PDF = diploma_report
 COURSE_REPORT_PDF = course_report
 TITLE_PDF = diploma_title_only
 TASK_PDF = diploma_task_only
+PRESENTATION_PDF = presentation
 BIBTEX = bibtex
 RM = rm -rf
 
@@ -32,7 +33,10 @@ $(TASK_PDF).pdf: *.tex
 	$(PDFLATEX) $(TASK_PDF)
 
 
-.PHONY: clean
+.PHONY: clean presentation
 
 clean:
 	$(RM) *.aux sections/*.aux *.log *.out *.pyg *.toc *.gz *.gz\(busy\) *.blg *.bbl _minted* $(DIPLOMA_REPORT_PDF).pdf $(TASK_PDF).pdf $(TITLE_PDF).pdf $(COURSE_REPORT_PDF).pdf
+
+presentation:
+	$(PDFLATEX) $(PRESENTATION_PDF)/$(PRESENTATION_PDF)
